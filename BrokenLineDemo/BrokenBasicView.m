@@ -48,20 +48,40 @@
     
     self.layer.masksToBounds = YES;
     
-    //增加渐变色
-    CAGradientLayer *gradientLayer = [[CAGradientLayer alloc] init];
+    // 创建Quartz上下文
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
     
-    //startPoint  endPoint 渐变的方向(从左上角到右下角),放射渐变效果可以更改下 startPoint endPoint具体看下效果,二者设置范围都是0到1
-    gradientLayer.startPoint = CGPointMake(0, 0);
-    gradientLayer.endPoint = CGPointMake(1, 0);
+    //创建色彩空间对象
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
     
-    gradientLayer.frame = self.bounds;
+    //创建起点颜色
+    CGColorRef beginColor = CGColorCreate(colorSpaceRef, (CGFloat[]){0.3f, 0.73f,0.53f, 1.0f});
     
-    gradientLayer.colors = [NSArray arrayWithObjects:(id)[UIColor greenColor].CGColor, (id)[UIColor orangeColor].CGColor,(id)[UIColor cyanColor].CGColor,nil];
+    //创建终点颜色
+    CGColorRef endColor = CGColorCreate(colorSpaceRef, (CGFloat[]){0.13f, 0.61f, 0.62f, 1.0f});
     
-    gradientLayer.locations = @[@0.0,@0.5,@1];
+    //创建颜色数组
+    CFArrayRef colorArray = CFArrayCreate(kCFAllocatorDefault, (const void*[]){beginColor, endColor}, 2, nil);
     
-    [self.layer addSublayer:gradientLayer];
+    CGGradientRef gradientRef = CGGradientCreateWithColors(colorSpaceRef, colorArray, (CGFloat[]){
+        0.0f,       // 对应起点颜色位置
+        1.0f        // 对应终点颜色位置
+    });
+    
+    // 释放颜色数组
+    CFRelease(colorArray);
+    
+    // 释放起点和终点颜色
+    CGColorRelease(beginColor);
+    CGColorRelease(endColor);
+    
+    // 释放色彩空间
+    CGColorSpaceRelease(colorSpaceRef);
+    
+    CGContextDrawLinearGradient(ctx, gradientRef, CGPointMake(0.0f, 0.0f), CGPointMake(rect.size.width, rect.size.height), 0);
+    
+    // 释放渐变对象
+    CGGradientRelease(gradientRef);
     
     [self.layer addSublayer:self.lineVeiw.layer];
 
