@@ -26,6 +26,8 @@
 
     self.view.backgroundColor = [UIColor whiteColor];
     
+    self.title = @"微信运动步数";
+    
     [self brokenLineTest];
 
 }
