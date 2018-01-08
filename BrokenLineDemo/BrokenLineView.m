@@ -27,7 +27,6 @@ static CGFloat titleFontSize = 18;
 
 static CGFloat wordTopSpace = 2;
 
-
 @interface BrokenLineView ()
 
 /**
