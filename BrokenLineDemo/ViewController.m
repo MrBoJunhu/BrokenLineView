@@ -36,10 +36,12 @@
     
     NSArray *X_StringArray = @[@"1",@"2",@"23",@"12",@""];
     
-    NSArray *Y_Array = @[];
+    NSArray *Y_Array = @[@983,@300,@800];
     
     self.brokenLineV = [[BrokenBasicView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 300) title:@"测试数据" XArray:[X_StringArray mutableCopy] YArray:[Y_Array mutableCopy]];
+   
     [self.view addSubview:self.brokenLineV];
+    
     [self.brokenLineV setNeedsDisplay];
 
     
