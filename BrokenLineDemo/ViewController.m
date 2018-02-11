@@ -34,15 +34,14 @@
 
 - (void)brokenLineTest {
     
-    NSArray *X_StringArray = @[@"1月",@"2月",@"3月",@"4月",@"5月",@"6月",@"7月"];
+    NSArray *X_StringArray = @[@"1",@"2",@"23",@"12",@""];
     
-    NSArray *Y_Array = @[@500.5,@300,@2500,@603,@745,@500,@900];
+    NSArray *Y_Array = @[];
     
     self.brokenLineV = [[BrokenBasicView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 300) title:@"测试数据" XArray:[X_StringArray mutableCopy] YArray:[Y_Array mutableCopy]];
-    
     [self.view addSubview:self.brokenLineV];
-    
     [self.brokenLineV setNeedsDisplay];
+
     
 }
 

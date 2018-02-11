@@ -99,19 +99,45 @@ static CGFloat wordTopSpace = 2;
     
     self.layer.masksToBounds = YES;
     
-    
-    CGFloat view_Width= rect.size.width;
+    CGFloat view_Width = rect.size.width;
     
     CGFloat view_Height = rect.size.height;
     
-
-    
+        
+    if (self.title) {
+        
+        NSDictionary *titleDic = @{
+                                   NSFontAttributeName :[UIFont systemFontOfSize:titleFontSize],
+                                   NSForegroundColorAttributeName:[UIColor purpleColor]
+                                   };
+        //绘制title
+        CGFloat title_Width = [self stringWidthWithString:self.title attributes:titleDic];
+        
+        [self.title drawAtPoint:CGPointMake(view_Width/2 - title_Width/2, 0) withAttributes:titleDic];
+        
+    }
     
     NSArray *X_StringArray = self.XArray;
     
     NSArray *Y_Array = self.YArray;
     
     NSUInteger inputCount = X_StringArray.count > Y_Array.count ? Y_Array.count : X_StringArray.count;
+    
+    if (inputCount == 0) {
+        
+        NSString *noDataString = @"无数据";
+        
+        NSDictionary *noDataDic = @{NSFontAttributeName:[UIFont systemFontOfSize:20],
+                                    NSForegroundColorAttributeName:[UIColor whiteColor]
+                                    };
+        
+        CGPoint nodataPoint = CGPointMake(self.center.x - [self stringWidthWithString:noDataString attributes:noDataDic]/2, self.center.y - [self stringHeightWithString:noDataString attributes:noDataDic]/2);
+        
+        [noDataString drawAtPoint:nodataPoint withAttributes:noDataDic];
+        
+        return;
+        
+    }
     
     //设置最大值
     CGFloat maxValue = 0;
@@ -183,21 +209,9 @@ static CGFloat wordTopSpace = 2;
     
     
   
-    CGContextRef ctx = UIGraphicsGetCurrentContext();
     
     
-    //绘制title
-    CGFloat title_Width = [NSString widthForString:self.title fontSize:titleFontSize];
     
-
-    if (self.title) {
-        
-        [self.title drawAtPoint:CGPointMake(view_Width/2 - title_Width/2, 0) withAttributes:@{
-                                                                                             NSFontAttributeName :[UIFont systemFontOfSize:titleFontSize],
-                                                                                             NSForegroundColorAttributeName:[UIColor purpleColor]
-                                                                                             }];
-   
-    }
     
     NSDictionary *attDic = @{
                              NSFontAttributeName :[UIFont systemFontOfSize:fontSize],
@@ -206,7 +220,8 @@ static CGFloat wordTopSpace = 2;
                              };
 
     
-    
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+
     //显示当前极限值
     NSNumber *maxNumber = [NSNumber numberWithFloat:maxValue];
     NSString *maxString = [NSString stringWithFormat:@"Y轴最大值是 : %@", maxNumber];
@@ -446,6 +461,26 @@ static CGFloat wordTopSpace = 2;
     
 }
 
+#pragma mark - public method
+
+- (CGFloat)stringWidthWithString:(NSString *)string attributes:(NSDictionary *)attributes{
+    
+    return [self rectOfString:string attributes:attributes].size.width;
+    
+}
+
+- (CGFloat)stringHeightWithString:(NSString *)string attributes:(NSDictionary *)attributes{
+    
+    return [self rectOfString:string attributes:attributes].size.height;
+    
+}
+
+
+- (CGRect)rectOfString:(NSString *)string attributes:(NSDictionary *)attributes{
+    
+    return [string boundingRectWithSize:CGSizeMake(MAXFLOAT, MAXFLOAT) options:NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingTruncatesLastVisibleLine attributes:attributes context:nil];
+    
+}
 
 
 @end

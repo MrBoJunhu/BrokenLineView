@@ -7,12 +7,12 @@
 //
 
 #import "BrokenBasicView.h"
-
 #import "BrokenLineView.h"
 
 @interface BrokenBasicView()
 
 @property (nonatomic, strong) BrokenLineView *lineVeiw ;
+
 
 @end
 
@@ -24,7 +24,7 @@
     if (self = [super initWithFrame:frame]) {
         
         self.lineVeiw = [[BrokenLineView alloc] initWithFrame:self.bounds title:title XArray:xArray YArray:yArray];
-        
+
         [self addSubview:_lineVeiw];
         
     }
