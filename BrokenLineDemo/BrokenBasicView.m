@@ -24,7 +24,7 @@
     if (self = [super initWithFrame:frame]) {
         
         self.lineVeiw = [[BrokenLineView alloc] initWithFrame:self.bounds title:title XArray:xArray YArray:yArray];
-
+        
         [self addSubview:_lineVeiw];
         
     }

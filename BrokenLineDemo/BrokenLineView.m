@@ -6,7 +6,6 @@
 //  Copyright © 2017年 BillBo. All rights reserved.
 //
 #import "BrokenLineView.h"
-
 #import "NSString+Category.h"
 
 static CGFloat topSpace = 30;
@@ -207,12 +206,6 @@ static CGFloat wordTopSpace = 2;
         
     }
     
-    
-  
-    
-    
-    
-    
     NSDictionary *attDic = @{
                              NSFontAttributeName :[UIFont systemFontOfSize:fontSize],
                              NSForegroundColorAttributeName : [UIColor blackColor],
@@ -243,8 +236,8 @@ static CGFloat wordTopSpace = 2;
     CGPoint  XPoints[2];
     XPoints[0] = origin_Point;
     XPoints[1] = right_Bottom_Point;
+
     CGContextAddLines(ctx, XPoints, 2);
-    
     //Y轴
 //    CGPoint YPoints[2];
 //    YPoints[0] = origin_Point;

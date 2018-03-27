@@ -42,9 +42,8 @@
    
     [self.view addSubview:self.brokenLineV];
     
-    [self.brokenLineV setNeedsDisplay];
+//    [self.brokenLineV setNeedsDisplay];
 
-    
 }
 
 
