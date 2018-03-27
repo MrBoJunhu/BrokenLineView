@@ -16,6 +16,7 @@
  */
 @property (nonatomic, strong) BrokenBasicView * brokenLineV;
 
+@property (nonatomic, strong) BBChartView *chartView;
 
 @end
 
@@ -48,9 +49,10 @@
     
     NSArray *yData = @[@"10",@"1.2",@"0.1",@"-0.8",@"1",@"1.2",@"0.1",@"-0.8",@"1",@"-5",@"0.1",@"-0.8"];
     
-    BBChartView *chartView = [[BBChartView alloc] initWithFrame:CGRectMake(20, CGRectGetMaxY(self.brokenLineV.frame), self.view.frame.size.width - 40, 200) title:@"体重" xData:xData yData:yData xWidth:50 noDataTips:@"暂无数据哦"];
+  
+    _chartView = [[BBChartView alloc] initWithFrame:CGRectMake(20, CGRectGetMaxY(self.brokenLineV.frame) + 20, self.view.frame.size.width - 40, 200) title:@"体重" xData:xData yData:yData xWidth:50 noDataTips:@"暂无数据哦"];
     
-    [self.view addSubview:chartView];
+    [self.view addSubview:_chartView];
 
     
 }
@@ -59,6 +61,7 @@
     
     self.brokenLineV.frame = CGRectMake(0, self.navigationController.navigationBar.frame.size.height, self.view.frame.size.width, 200);
     
+    _chartView.frame = CGRectMake(20, CGRectGetMaxY(self.brokenLineV.frame) + 20, self.view.frame.size.width - 40, 200);
 }
 
 - (void)didReceiveMemoryWarning {
