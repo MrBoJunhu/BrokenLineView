@@ -18,6 +18,8 @@
 		A5314AFD1F4D2E6A00A0CB8A /* BrokenBasicView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5314AF81F4D2E6A00A0CB8A /* BrokenBasicView.m */; };
 		A5314AFE1F4D2E6A00A0CB8A /* BrokenLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5314AFA1F4D2E6A00A0CB8A /* BrokenLineView.m */; };
 		A5314AFF1F4D2E6A00A0CB8A /* NSString+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = A5314AFC1F4D2E6A00A0CB8A /* NSString+Category.m */; };
+		D950EC5E206A4CA000AD2833 /* BBChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D950EC5C206A4CA000AD2833 /* BBChartView.m */; };
+		D950EC61206A4CB900AD2833 /* BBDrawChartsView.m in Sources */ = {isa = PBXBuildFile; fileRef = D950EC60206A4CB900AD2833 /* BBDrawChartsView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,10 @@
 		A5314AFB1F4D2E6A00A0CB8A /* NSString+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Category.h"; sourceTree = "<group>"; };
 		A5314AFC1F4D2E6A00A0CB8A /* NSString+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Category.m"; sourceTree = "<group>"; };
 		A5314B001F4D2ED700A0CB8A /* BrokenBasicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrokenBasicView.h; sourceTree = "<group>"; };
+		D950EC5C206A4CA000AD2833 /* BBChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBChartView.m; sourceTree = "<group>"; };
+		D950EC5D206A4CA000AD2833 /* BBChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBChartView.h; sourceTree = "<group>"; };
+		D950EC5F206A4CB900AD2833 /* BBDrawChartsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBDrawChartsView.h; sourceTree = "<group>"; };
+		D950EC60206A4CB900AD2833 /* BBDrawChartsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBDrawChartsView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +116,7 @@
 		A5314AC41F4D2E2F00A0CB8A /* BrokenLineDemo */ = {
 			isa = PBXGroup;
 			children = (
+				D950EC5B206A4C5900AD2833 /* ScrollChartsView */,
 				A5314B001F4D2ED700A0CB8A /* BrokenBasicView.h */,
 				A5314AF81F4D2E6A00A0CB8A /* BrokenBasicView.m */,
 				A5314AF91F4D2E6A00A0CB8A /* BrokenLineView.h */,
@@ -153,6 +160,17 @@
 				A5314AEC1F4D2E2F00A0CB8A /* Info.plist */,
 			);
 			path = BrokenLineDemoUITests;
+			sourceTree = "<group>";
+		};
+		D950EC5B206A4C5900AD2833 /* ScrollChartsView */ = {
+			isa = PBXGroup;
+			children = (
+				D950EC5D206A4CA000AD2833 /* BBChartView.h */,
+				D950EC5C206A4CA000AD2833 /* BBChartView.m */,
+				D950EC5F206A4CB900AD2833 /* BBDrawChartsView.h */,
+				D950EC60206A4CB900AD2833 /* BBDrawChartsView.m */,
+			);
+			name = ScrollChartsView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,6 +315,8 @@
 				A5314AFD1F4D2E6A00A0CB8A /* BrokenBasicView.m in Sources */,
 				A5314AC71F4D2E2F00A0CB8A /* main.m in Sources */,
 				A5314AFE1F4D2E6A00A0CB8A /* BrokenLineView.m in Sources */,
+				D950EC5E206A4CA000AD2833 /* BBChartView.m in Sources */,
+				D950EC61206A4CB900AD2833 /* BBDrawChartsView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
