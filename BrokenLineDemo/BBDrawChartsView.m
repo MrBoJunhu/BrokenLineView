@@ -125,17 +125,6 @@
     
     NSUInteger minimumDrawRange = abs((int)minimumRange);
     
-    NSDictionary *xWordAttributeDic = @{
-                                        NSFontAttributeName :[UIFont systemFontOfSize:8],
-                                        NSForegroundColorAttributeName : [UIColor whiteColor],
-                                        NSStrokeWidthAttributeName:@6
-                                        };
-    
-    NSDictionary *yWordAttributeDic = @{
-                                        NSFontAttributeName :[UIFont systemFontOfSize:10],
-                                        NSForegroundColorAttributeName : [UIColor whiteColor],
-                                        NSStrokeWidthAttributeName:@6
-                                        };
     
     
     CGFloat percent_H = drawHeight/minimumDrawRange;
@@ -156,8 +145,8 @@
     CGPoint XPoints[2];
     XPoints[0] = _originPoint;
     XPoints[1] = rightBottomPoint;
-    CGContextSetStrokeColorWithColor(contextRef, [UIColor blackColor].CGColor);
-    CGContextSetLineWidth(contextRef, 0.5);
+    CGContextSetStrokeColorWithColor(contextRef, [UIColor whiteColor].CGColor);
+    CGContextSetLineWidth(contextRef, 1);
     CGContextMoveToPoint(contextRef, _originPoint.x, _originPoint.y);
     CGContextAddLines(contextRef, XPoints, 2);
     CGContextStrokePath(contextRef);
@@ -195,25 +184,7 @@
         }
         
         CGPoint p = CGPointMake(x, y);
-        
-        NSString *yString = tempYArray[i];
-        
-        CGFloat yString_W = [self widthOfString:yString attributes:yWordAttributeDic];
-        
-        CGFloat yString_H = [self heightOfString:yString attributes:yWordAttributeDic];
-        
-        CGFloat yString_Origin_Y = dataNum >= 0 ? p.y - yString_H : p.y + yString_H/2;
-        
-        [yString drawAtPoint:CGPointMake(p.x - yString_W/2, yString_Origin_Y) withAttributes:yWordAttributeDic];
-        
-        NSString *xString = self.x_Array[i];
-        
-        CGFloat xString_W = [self widthOfString:xString attributes:xWordAttributeDic];
-        
-        CGFloat xString_Height = [self heightOfString:xString attributes:xWordAttributeDic];
-        
-        [xString drawAtPoint:CGPointMake(p.x - xString_W/2, _originPoint.y + xString_Height/2) withAttributes:xWordAttributeDic];
-        
+
         NSValue *pointValue = [NSValue valueWithCGPoint:p];
         
         [self.allPointsArray addObject:pointValue];
@@ -224,15 +195,73 @@
         
     }
     
-    UIColor *pathColor = [UIColor blackColor];
+    UIColor *pathColor = [UIColor whiteColor];
     
     [pathColor set];
     
     [bezierPath addLineToPoint:rightBottomPoint];
     
-    [bezierPath fillWithBlendMode:kCGBlendModeDifference alpha:0.3];
+    [bezierPath fillWithBlendMode:kCGBlendModeDifference alpha:0.5];
     
     [bezierPath closePath];
+    
+    // draw x  y string
+    NSDictionary *xWordAttributeDic = @{
+                                        NSFontAttributeName :[UIFont systemFontOfSize:8],
+                                        NSForegroundColorAttributeName : [UIColor whiteColor],
+                                        NSStrokeWidthAttributeName:@8
+                                        };
+    
+    NSDictionary *yWordAttributeDic = @{
+                                        NSFontAttributeName :[UIFont systemFontOfSize:10],
+                                        NSForegroundColorAttributeName : [UIColor whiteColor],
+                                        NSStrokeWidthAttributeName:@8
+                                        };
+
+    for (NSUInteger i = 0; i < tempYArray.count; i++) {
+        
+        NSValue *pointValue = self.allPointsArray[i];
+        
+        CGPoint p = pointValue.CGPointValue;
+        
+        CGContextSetRGBStrokeColor(contextRef, 255/255, 255/255, 255/255, 1);
+        
+        CGContextSetLineWidth(contextRef, 2);
+        
+        CGContextAddArc(contextRef, p.x, p.y, 1, 0, 2 * M_PI, 0);
+        
+        CGContextDrawPath(contextRef, kCGPathStroke);
+       
+//        UIBezierPath *pointPath = [UIBezierPath bezierPathWithArcCenter:p radius:1 startAngle:0 endAngle:2*M_PI clockwise:YES];
+//
+//        pointPath.lineWidth = 2.0;
+//
+//        pointPath.lineCapStyle = kCGLineCapRound;
+//
+//        pointPath.lineJoinStyle = kCGLineJoinRound;
+//
+//        [pointPath stroke];
+
+        
+        NSString *yString = tempYArray[i];
+        
+        CGFloat yString_W = [self widthOfString:yString attributes:yWordAttributeDic];
+        
+        CGFloat yString_H = [self heightOfString:yString attributes:yWordAttributeDic];
+        
+        CGFloat yString_Origin_Y = yString.floatValue >= 0 ? p.y - yString_H : p.y + yString_H/2;
+        
+        [yString drawAtPoint:CGPointMake(p.x - yString_W/2, yString_Origin_Y) withAttributes:yWordAttributeDic];
+        
+        NSString *xString = self.x_Array[i];
+        
+        CGFloat xString_W = [self widthOfString:xString attributes:xWordAttributeDic];
+        
+        CGFloat xString_Height = [self heightOfString:xString attributes:xWordAttributeDic];
+        
+        [xString drawAtPoint:CGPointMake(p.x - xString_W/2, _originPoint.y + xString_Height/2) withAttributes:xWordAttributeDic];
+
+    }
     
 }
 

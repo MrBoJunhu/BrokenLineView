@@ -8,6 +8,7 @@
 
 #import "BBChartView.h"
 #import "BBDrawChartsView.h"
+#import "UIColor+VJExtension.h"
 
 @interface BBChartView(){
     
@@ -94,7 +95,11 @@
     
     layer.frame = CGRectMake(0, 0, rect.size.width, rect.size.height);
     
-    layer.colors = @[(id)[UIColor cyanColor].CGColor,(id)[UIColor orangeColor].CGColor, (id)[UIColor orangeColor].CGColor];
+    UIColor *bustHighColor = [UIColor vj_colorWithHex:0xFF77BA2B];
+    
+    UIColor *bustLowColor = [UIColor vj_colorWithHex:0xFFA6C225];
+
+    layer.colors = @[(id)bustHighColor.CGColor, (id)bustLowColor.CGColor];
     
     layer.startPoint = CGPointMake(0, 0);
     

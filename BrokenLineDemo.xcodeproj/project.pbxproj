@@ -20,6 +20,7 @@
 		A5314AFF1F4D2E6A00A0CB8A /* NSString+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = A5314AFC1F4D2E6A00A0CB8A /* NSString+Category.m */; };
 		D950EC5E206A4CA000AD2833 /* BBChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = D950EC5C206A4CA000AD2833 /* BBChartView.m */; };
 		D950EC61206A4CB900AD2833 /* BBDrawChartsView.m in Sources */ = {isa = PBXBuildFile; fileRef = D950EC60206A4CB900AD2833 /* BBDrawChartsView.m */; };
+		D9805FE1206CD37F0043A313 /* UIColor+VJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D9805FE0206CD37F0043A313 /* UIColor+VJExtension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,8 @@
 		D950EC5D206A4CA000AD2833 /* BBChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBChartView.h; sourceTree = "<group>"; };
 		D950EC5F206A4CB900AD2833 /* BBDrawChartsView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BBDrawChartsView.h; sourceTree = "<group>"; };
 		D950EC60206A4CB900AD2833 /* BBDrawChartsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BBDrawChartsView.m; sourceTree = "<group>"; };
+		D9805FDF206CD37F0043A313 /* UIColor+VJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+VJExtension.h"; sourceTree = "<group>"; };
+		D9805FE0206CD37F0043A313 /* UIColor+VJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+VJExtension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +168,8 @@
 		D950EC5B206A4C5900AD2833 /* ScrollChartsView */ = {
 			isa = PBXGroup;
 			children = (
+				D9805FDF206CD37F0043A313 /* UIColor+VJExtension.h */,
+				D9805FE0206CD37F0043A313 /* UIColor+VJExtension.m */,
 				D950EC5D206A4CA000AD2833 /* BBChartView.h */,
 				D950EC5C206A4CA000AD2833 /* BBChartView.m */,
 				D950EC5F206A4CB900AD2833 /* BBDrawChartsView.h */,
@@ -312,6 +317,7 @@
 				A5314ACD1F4D2E2F00A0CB8A /* ViewController.m in Sources */,
 				A5314AFF1F4D2E6A00A0CB8A /* NSString+Category.m in Sources */,
 				A5314ACA1F4D2E2F00A0CB8A /* AppDelegate.m in Sources */,
+				D9805FE1206CD37F0043A313 /* UIColor+VJExtension.m in Sources */,
 				A5314AFD1F4D2E6A00A0CB8A /* BrokenBasicView.m in Sources */,
 				A5314AC71F4D2E2F00A0CB8A /* main.m in Sources */,
 				A5314AFE1F4D2E6A00A0CB8A /* BrokenLineView.m in Sources */,
