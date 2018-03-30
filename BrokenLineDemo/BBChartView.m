@@ -66,7 +66,8 @@ static CGFloat drawRightSpace = 20;
             
             _scv.showsHorizontalScrollIndicator = NO;
             
-            CGFloat content_W = drawLeftSpace + drawRightSpace + xWidth * (_count - 1);
+            CGFloat content_W = drawLeftSpace + drawRightSpace + xWidth 
+            * (_count - 1);
                         
             _scv.contentSize = CGSizeMake(content_W, _scv.frame.size.height);
             
